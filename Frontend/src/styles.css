@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background_color: #2c2a2a;
+  --font_family: "Poppins", sans-serif;
+  --button_color: #49bd43;
+  --banner_font_color: #fffdfe;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font_family);
+  background-color: var(--background_color);
+}
+button {
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
