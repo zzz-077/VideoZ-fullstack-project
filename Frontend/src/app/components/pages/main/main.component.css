@@ -1,31 +1,32 @@
 .main_container {
   width: 100%;
   height: 100%;
-  padding: 0 4rem;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  padding: 0 4rem;
 }
 .main_container .main_box {
   width: 1620px;
-  height: 780px;
-  margin: auto;
-  position: relative;
+  height: 42rem;
   overflow: hidden;
   border-radius: 3rem;
+  position: relative;
 }
 .main_container .main_box video {
-  width: 100%;
   position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -1;
 }
 .main_container .main_box .main_content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   height: 100%;
   padding: 4rem 3rem 2rem 3rem;
-  z-index: 1;
 }
 .main_container .main_box .main_content h3 {
   font-size: 4rem;
@@ -48,4 +49,47 @@
 }
 .main_container .main_box .main_content .button_box button:hover {
   background-color: #90ea8d;
+}
+/*==============================*/
+/*==========RESPONSIVE==========*/
+/*==============================*/
+
+@media (max-width: 1024px) {
+  .main_container {
+    padding: 0 1rem;
+  }
+  .main_container .main_box .main_content {
+    padding: 5rem 4rem 3rem 4rem;
+  }
+  .main_container .main_box .main_content h3 {
+    font-size: 4rem;
+    width: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .main_container .main_box .main_content h3 {
+    font-size: 3rem;
+    width: 450px;
+  }
+}
+@media (max-width: 630px) {
+  .main_container .main_box .main_content h3 {
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+@media (max-width: 430px) {
+  .main_container {
+    padding: 1rem;
+  }
+  .main_container .main_box .main_content {
+    padding: 5rem 2rem 3rem 2rem;
+  }
+  .main_container .main_box {
+    border-radius: 0.5rem;
+  }
+  .main_container .main_box .main_content h3 {
+    font-size: 2.5rem;
+    width: 100%;
+  }
 }
