@@ -1,0 +1,44 @@
+<div class="callRoom_container">
+  <div class="callRoom_box">
+    <div class="videoInputs">
+      <div class="video_box">
+        <div class="user_Img">
+          <img src="assets/L.png" alt="" />
+        </div>
+      </div>
+      <div class="video_box">
+        <div class="user_Img">
+          <img src="assets/P.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="tools_box">
+      <div class="videoBtn btns_boxes">
+        @if(isCameraBtnClicked){
+
+        <button (click)="CameraBtnClick()" class="active">
+          <i class="fa-solid fa-video"></i>
+        </button>
+        }@else {
+        <button (click)="CameraBtnClick()" class="inactive">
+          <i class="fa-solid fa-video-slash"></i>
+        </button>
+        }
+      </div>
+      <div class="microfonBtn btns_boxes">
+        @if(isMicroBtnClicked){
+        <button (click)="MicroBtnClick()" class="active">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+        }@else {
+        <button (click)="MicroBtnClick()" class="inactive">
+          <i class="fa-solid fa-microphone-slash"></i>
+        </button>
+        }
+      </div>
+      <div class="leaveCallBtn btns_boxes">
+        <button><i class="fa-solid fa-phone-slash"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
