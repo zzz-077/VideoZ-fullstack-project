@@ -8,7 +8,7 @@
 }
 
 .callRoom_container .callRoom_box {
-  width: 1840px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -19,13 +19,14 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  height: 60%;
 }
 .callRoom_container .callRoom_box .video_box {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 .callRoom_container .callRoom_box .video_box:nth-child(1) {
   background-color: #66b4f5;

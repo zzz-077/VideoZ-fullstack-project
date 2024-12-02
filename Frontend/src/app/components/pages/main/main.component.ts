@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
+  joinCallAudio = new Audio('/assets/sounds/discord-join.mp3');
   constructor(private router: Router) {}
 
   StartCallBtn() {
+    this.joinCallAudio.play();
     this.router.navigate(['/call/123']);
   }
 }

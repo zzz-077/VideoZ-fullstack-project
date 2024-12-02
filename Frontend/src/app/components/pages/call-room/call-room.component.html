@@ -15,7 +15,6 @@
     <div class="tools_box">
       <div class="videoBtn btns_boxes">
         @if(isCameraBtnClicked){
-
         <button (click)="CameraBtnClick()" class="active">
           <i class="fa-solid fa-video"></i>
         </button>
@@ -37,7 +36,9 @@
         }
       </div>
       <div class="leaveCallBtn btns_boxes">
-        <button><i class="fa-solid fa-phone-slash"></i></button>
+        <button (click)="LeaveBtnClick()">
+          <i class="fa-solid fa-phone-slash"></i>
+        </button>
       </div>
     </div>
   </div>
