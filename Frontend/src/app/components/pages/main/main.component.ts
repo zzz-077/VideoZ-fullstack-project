@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnectionService } from '../../../shared/services/connection.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-main',
@@ -10,15 +11,14 @@ import { ConnectionService } from '../../../shared/services/connection.service';
   styleUrl: './main.component.css',
 })
 export class MainComponent {
-  joinCallAudio = new Audio('/assets/sounds/discord-join.mp3');
   constructor(private router: Router, private service: ConnectionService) {}
 
   StartCallBtn() {
-    if (this.joinCallAudio) {
-      this.joinCallAudio.play();
-    }
+    let audio = new Audio();
+    audio.src = '/assets/sounds/discord-join.mp3';
+    audio.load();
+    audio.play();
     this.router.navigate(['/call/123']);
-
-    this.service.JoinedInCall();
+    /* this.service.JoinedInCall();*/
   }
 }

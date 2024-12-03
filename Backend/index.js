@@ -26,14 +26,16 @@ export const io = new Server(server, {
     origin: "http://localhost:4200",
     credentials: true,
   },
+  transports: ["websocket", "polling"],
 });
 
 io.on("connection", (socket) => {
-  console.log("Socket connected", socket.id);
-  socket.on("JoinedInCall", () => {
-    console.log("joined in call");
+  console.log(`Socket connected: ${socket.id}`);
+  socket.on("disconnect", (reason) => {
+    console.log(`Socket disconnected: ${socket.id}, reason: ${reason}`);
   });
 });
+
 server.listen(BACK_PORT, () => {
   console.log(`Server is running on port ${BACK_PORT}`);
 });
