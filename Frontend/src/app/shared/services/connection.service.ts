@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscriber, of } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
 @Injectable({
@@ -8,24 +8,25 @@ import { io, Socket } from 'socket.io-client';
 })
 export class ConnectionService {
   BackUrl: string = 'http://localhost:3000';
-  socket: Socket;
+  private static socket: Socket | null = null;
   constructor(private http: HttpClient) {
-    this.socket = io(this.BackUrl, {
-      withCredentials: true,
-      transports: ['websocket', 'polling'],
-      autoConnect: false,
-      reconnection: false,
-    });
-    /*
-    this.socket.on('connect', () => {
-      console.log('Socket connected:', this.socket.id);
-    });
+    if (!ConnectionService.socket) {
+      console.log('Initializing Socket.IO connection...');
+      ConnectionService.socket = io(this.BackUrl, {
+        withCredentials: true,
+      });
+      ConnectionService.socket.on('connect', () => {
+        console.log(
+          'Connected to Socket.IO server with ID:',
+          ConnectionService.socket?.id
+        );
+      });
 
-    this.socket.on('disconnect', () => {
-      console.log('Socket disconnected');
-    });*/
+      ConnectionService.socket.on('disconnect', () => {
+        console.log('Disconnected from Socket.IO server');
+      });
+    } else {
+      console.log('Socket.IO connection already exists.');
+    }
   }
-  /*  JoinedInCall(): void {
-    this.socket.emit('JoinedInCall');
-  }*/
 }

@@ -12,7 +12,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/ws": "^8.5.13",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.6",
     "express": "^4.21.1",
     "socket.io": "^4.8.1"
   }
